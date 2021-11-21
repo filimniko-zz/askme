@@ -15,6 +15,12 @@ class User < ApplicationRecord
     record.errors.add(attr, 'email is incorrect') unless value =~ /^[\w\d\.]+@[\w\d]+\.\w/i
   end
 
+  before_validation :username_validation
+
+  def username_validation
+    username.downcase!
+  end
+
   attr_accessor :password
 
   validates :password, presence: true
