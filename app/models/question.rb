@@ -1,7 +1,11 @@
 class Question < ApplicationRecord
+  QUESTION_MAX_LENGTH = 255
 
   belongs_to :user
 
-  validates :text, :user, presence: true
-  validates :text, length: { maximum: 255 }
+  validates :text,
+            presence: true,
+            length: { maximum: QUESTION_MAX_LENGTH }
+
+  validates :user, presence: true
 end
