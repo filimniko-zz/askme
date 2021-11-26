@@ -18,7 +18,7 @@ class User < ApplicationRecord
             uniqueness: true
 
   validates_each :email do |record, attr, value|
-    record.errors.add(attr, 'email is incorrect') unless value =~ EMAIL_REGEX
+    record.errors.add(attr) unless value =~ EMAIL_REGEX
   end
 
   validates :username,
@@ -45,8 +45,8 @@ class User < ApplicationRecord
   end
 
   def text_to_downcase
-    username.downcase! if username.present?
-    email.downcase! if email.present?      
+    username&.downcase!
+    email&.downcase!     
   end
 
   def encrypt_password

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_185542) do
+ActiveRecord::Schema.define(version: 2021_11_26_163818) do
 
   create_table "questions", force: :cascade do |t|
     t.string "text"
@@ -21,12 +21,14 @@ ActiveRecord::Schema.define(version: 2021_11_22_185542) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
+# Could not dump table "users" because of following StandardError
+# Unknown type 'username' for column 'email'
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "username"
+    t.string "username", unique: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
+    t.string "email", unique: true
     t.string "password_hash"
     t.string "password_salt"
     t.string "avatar_url"
