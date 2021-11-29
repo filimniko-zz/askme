@@ -5,7 +5,7 @@ class User < ApplicationRecord
   DIGEST = OpenSSL::Digest::SHA256.new
   USERNAME_MAX_LENGTH = 40
   USERNAME_REGEX = /\A[a-zA-Z0-9_]+\z/
-  EMAIL_REGEX = /^[\w\d\.]+@[\w\d]+\.\w/i
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
   attr_accessor :password
 
@@ -14,12 +14,11 @@ class User < ApplicationRecord
   before_save :encrypt_password
 
   validates :email,
-            presence: true,
+            presence: true ,
             uniqueness: true
 
-  validates_each :email do |record, attr, value|
-    record.errors.add(attr) unless value =~ EMAIL_REGEX
-  end
+  validates_format_of :email, with: EMAIL_REGEX
+
 
   validates :username,
             presence: true,
@@ -42,7 +41,9 @@ class User < ApplicationRecord
     else
       nil
     end
-  end
+  end  
+
+  private
 
   def text_to_downcase
     username&.downcase!
