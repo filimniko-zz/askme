@@ -15,16 +15,14 @@ class User < ApplicationRecord
 
   validates :email,
             presence: true ,
-            uniqueness: true
-
-  validates_format_of :email, with: EMAIL_REGEX
-
+            uniqueness: true,
+            format: { with: EMAIL_REGEX }
 
   validates :username,
             presence: true,
             uniqueness: true,
             length: { maximum: USERNAME_MAX_LENGTH },
-            format: { with: USERNAME_REGEX, message: "only allows letters" }
+            format: { with: USERNAME_REGEX }
 
   validates :password,
             presence: true,

@@ -1,0 +1,43 @@
+.container {
+  align-content: center;
+  padding: 50px 50px 50px 50px;
+  min-width: 400px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightgoldenrodyellow;
+}
+
+.column-1-2 {
+  display: block;
+  width: 45%;
+  float: left;
+  padding: 10px;
+}
+
+.about {
+  margin-top: 40px;
+  max-width: 100%;
+  align-content: space-around;
+}
+
+.about:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.pay {
+  background-color: rgb(255, 175, 1);
+  align-content: center;
+}
+
+.pay:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
