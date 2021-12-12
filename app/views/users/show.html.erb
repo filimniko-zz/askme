@@ -12,8 +12,9 @@
   </div>
 
   <h2 class="title-small buffer-both">
-    <%# Выводим никнейм пользователя с символом «@» перед ним. %>
     <%= @user.username %>
+     <br/> 
+    ( <%= @questions.length %> <%= inclinator(@questions) %> )
   </h2>
 
   <div class="user-ask-button container text-center">
