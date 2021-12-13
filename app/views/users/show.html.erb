@@ -11,11 +11,17 @@
     <%= image_tag user_avatar(@user), class: 'user-image', alt: '[Фото]' %>
   </div>
 
-  <h2 class="title-small buffer-both">
+  <h2 class="title-small buffer-top">
     <%= @user.username %>
-     <br/> 
-    ( <%= @questions.length %> <%= inclinator(@questions) %> )
   </h2>
+
+  <p class="text-small">
+    <%= inclinator(@questions) %>
+  </p>
+  <p class="text-small">
+    ( с ответом <%= inclinator(@questions.select { |q| q.answer.present?}) %> / 
+      без ответа <%= inclinator(@questions.reject { |q| q.answer.present?}) %> )
+  </p>
 
   <div class="user-ask-button container text-center">
     <%# Используем встроенный в rails хелпер link_to %>
