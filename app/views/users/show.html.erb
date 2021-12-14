@@ -20,11 +20,9 @@
   </h2>
 
   <p class="text-small">
-    <%= inclinator(@questions)%>
-  </p>
-  <p class="text-small">
-    ( с ответом <%= inclinator(@questions.select { |q| q.answer.present?}) %>  / 
-      без ответа <%= inclinator(@questions.reject { |q| q.answer.present?}) %> )
+    Всего <%= inclinator(@questions)%>, из них c ответом  
+      <%= qustions_with_answer(@questions) %>, неотвеченных  
+      <span class="red">  <%= qustions_without_answer(@questions) %></span>.
   </p>
 
   <div class="user-ask-button container text-center">

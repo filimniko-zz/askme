@@ -8,9 +8,7 @@ module ApplicationHelper
   end
 
   def inclinator(array)
-
     num = array.length % 100
-  
     if (num >= 11 && num <=19)
       return  "#{array.length} вопросов"
     else
@@ -24,6 +22,18 @@ module ApplicationHelper
         return "#{array.length} вопросов"
       end
     end  
+  end
+
+  def qustions_with_answer(questions)
+    value = 0
+    questions.each { |q| value = value + 1 if q.answer.present? }
+    value
+  end
+
+  def qustions_without_answer(questions)
+    value = 0
+    questions.each { |q| value = value + 1 unless q.answer.present? }
+    value
   end
 
   # Хелпер, рисующий span тэг с иконкой из font-awesome
