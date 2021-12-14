@@ -8,6 +8,7 @@ module ApplicationHelper
   end
 
   def inclinator(array)
+
     num = array.length % 100
   
     if (num >= 11 && num <=19)
