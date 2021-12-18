@@ -24,18 +24,6 @@ module ApplicationHelper
     end  
   end
 
-  def qustions_with_answer(questions)
-    value = 0
-    questions.each { |q| value = value + 1 if q.answer.present? }
-    value
-  end
-
-  def qustions_without_answer(questions)
-    value = 0
-    questions.each { |q| value = value + 1 unless q.answer.present? }
-    value
-  end
-
   # Хелпер, рисующий span тэг с иконкой из font-awesome
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"

@@ -20,9 +20,9 @@
   </h2>
 
   <p class="text-small">
-    Всего <%= inclinator(@questions)%>, из них c ответом  
-      <%= qustions_with_answer(@questions) %>, неотвеченных  
-      <span class="red">  <%= qustions_without_answer(@questions) %></span>.
+    Всего <%= @questions_count%>, из них c ответом  
+      <%= @questions_with_answer %>, неотвеченных  
+      <span class="red">  <%= @questions_without_answer %></span>.
   </p>
 
   <div class="user-ask-button container text-center">
