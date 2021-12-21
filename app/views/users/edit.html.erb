@@ -37,8 +37,9 @@
         <%= f.text_field :avatar_url, class: 'form-text-field' %>
       </div>
 
-      <div class="buffer-top-large buffer-bottom">
-        Если не хотите менять пароль — оставьте эти поля пустыми!
+      <div class="form-field">
+        <%= f.label 'Цвет фона блока с аватаркой на странице', class: 'form-label' %>
+        <%= f.color_field :user_bg_color, value: @user.user_bg_color%>
       </div>
 
       <div class="form-field">

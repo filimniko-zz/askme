@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_12_19_162034) do
     t.string "password_hash"
     t.string "password_salt"
     t.string "avatar_url"
+    t.string "user_bg_color", default: "#005a55"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
