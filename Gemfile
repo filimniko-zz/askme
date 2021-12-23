@@ -13,9 +13,12 @@ gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 
 gem 'webrick'
+
 gem 'jquery-rails'
 
 gem 'uglifier'
+
+gem 'uri'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

@@ -43,6 +43,15 @@ class UsersController < ApplicationController
     end    
   end
 
+  def destroy
+    if current_user
+      session[:user_id] = nil
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to root_url, notice: 'Пользователь успешно удален!'
+    end
+  end
+
   private
 
   def authorize_user

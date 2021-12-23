@@ -7,6 +7,7 @@ class User < ApplicationRecord
   USERNAME_REGEX = /\A[a-zA-Z0-9_]+\z/
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
+
   attr_accessor :password
 
   has_many :questions
