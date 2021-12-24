@@ -2,7 +2,7 @@ require "uri"
 
 module ApplicationHelper
   def user_avatar (user)
-    if user.avatar_url.present? && user.avatar_url =~ URI.regexp
+    if user.avatar_url.present? && !user.avatar_url.include?('display:')
       user.avatar_url
     else
       asset_path 'avatar.jpg'
