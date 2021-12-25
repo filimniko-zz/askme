@@ -1,8 +1,6 @@
-require "uri"
-
 module ApplicationHelper
   def user_avatar (user)
-    if user.avatar_url.present? && user.avatar_url =~ URI.regexp && !user.avatar_url.include?('display:')
+    if user.avatar_url.present?
       user.avatar_url
     else
       asset_path 'avatar.jpg'
@@ -29,5 +27,13 @@ module ApplicationHelper
   # Хелпер, рисующий span тэг с иконкой из font-awesome
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"
+  end
+
+  def interviewer_username(id)
+    if User.exists?(id)
+      User.find(id).username
+    else
+      'Гость'
+    end
   end
 end

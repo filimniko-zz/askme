@@ -4,6 +4,7 @@
     <div class="question-text text-lead">
       <%= question.text %>
     </div>
+    Вопрос задал: <%= link_to interviewer_username(question.interviewer_id), user_path(question.interviewer_id) %>
 
     <%# Текст ответа, если он есть %>
     <% if question.answer.present? %>

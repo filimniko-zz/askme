@@ -1,4 +1,5 @@
 require "openssl"
+require "uri"
 
 class User < ApplicationRecord
   ITERATIONS = 20000
@@ -28,6 +29,10 @@ class User < ApplicationRecord
   validates :password,
             presence: true,
             confirmation: true
+
+  validates :avatar_url,
+            format: URI::regexp(%w[http https]),
+            allow_blank: true
 
   def self.hash_to_string(password_hash)
     password_hash.unpack("H*")[0]
