@@ -9,7 +9,12 @@ class QuestionsController < ApplicationController
   # POST /questions or /questions.json
   def create
     @question = Question.new(question_params)
-    @question.interviewer_id = current_user.id if current_user.present?
+
+    if current_user.present?
+      @question.interviewer_id = current_user.id
+    else
+      @question.interviewer_id = 0
+    end
 
     if @question.save
       redirect_to user_path(@question.user), notice: "Ваш вопрос задан"

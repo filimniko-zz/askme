@@ -36,4 +36,12 @@ module ApplicationHelper
       'Гость'
     end
   end
+
+  def interviewer_path(id)
+    if User.exists?(id)
+      User.find(id).id
+    else
+      @user.id
+    end
+  end
 end
