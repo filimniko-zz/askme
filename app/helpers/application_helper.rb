@@ -29,7 +29,7 @@ module ApplicationHelper
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
 
-  def interviewer_username(id)
+  def author_username(id)
     if User.exists?(id)
       User.find(id).username
     else
@@ -37,7 +37,7 @@ module ApplicationHelper
     end
   end
 
-  def interviewer_path(id)
+  def author_path(id)
     if User.exists?(id)
       User.find(id).id
     else
