@@ -2,6 +2,7 @@ class Question < ApplicationRecord
   QUESTION_MAX_LENGTH = 255
 
   belongs_to :user
+  belongs_to :author, class_name: 'User'
 
   validates :text,
             presence: true,
