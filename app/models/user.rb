@@ -28,7 +28,8 @@ class User < ApplicationRecord
 
   validates :password,
             presence: true,
-            confirmation: true
+            confirmation: true,
+            on: :create
 
   validates :avatar_url,
             format: URI::regexp(%w[http https]),

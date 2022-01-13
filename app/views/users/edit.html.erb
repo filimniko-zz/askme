@@ -42,6 +42,10 @@
         <%= f.color_field :user_bg_color, value: @user.user_bg_color%>
       </div>
 
+      <div class="buffer-top-large buffer-bottom">
+        Если не хотите менять пароль — оставьте эти поля пустыми!
+      </div>
+
       <div class="form-field">
         <%= f.label :password, class: 'form-label' %>
         <%= f.password_field :password, class: 'form-text-field' %>
