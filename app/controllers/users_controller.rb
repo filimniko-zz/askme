@@ -45,7 +45,6 @@ class UsersController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    @user.questions.destroy_all
     @user.destroy
     redirect_to root_url, notice: 'Пользователь успешно удален!'
   end
@@ -57,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   def load_user
-    @user ||= User.find params[:id] if User.exists?(params[:id])
+    @user ||= User.find params[:id]
   end
 
   def user_params
