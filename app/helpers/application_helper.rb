@@ -29,17 +29,17 @@ module ApplicationHelper
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
 
-  def author_username(id)
-    if User.exists?(id)
-      User.find(id).username
+  def author_username(question)
+    if question.author.present?
+      question.author.username
     else
       'Гость'
     end
   end
 
-  def author_path(id)
-    if User.exists?(id)
-      User.find(id).id
+  def author_path(question)
+    if question.author.present?
+      question.author_id
     else
       @user.id
     end

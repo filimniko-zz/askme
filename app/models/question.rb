@@ -7,6 +7,4 @@ class Question < ApplicationRecord
   validates :text,
             presence: true,
             length: { maximum: QUESTION_MAX_LENGTH }
-
-  validates :user, presence: true
 end
