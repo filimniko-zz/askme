@@ -4,7 +4,7 @@
     <div class="question-text text-lead">
       <%= question.text %>
     </div>
-    Вопрос задал: <%= link_to author_username(question), user_path(author_path(question)) %>
+    Вопрос задал: <%= author_username(question) %>
 
     <%# Текст ответа, если он есть %>
     <% if question.answer.present? %>

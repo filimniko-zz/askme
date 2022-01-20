@@ -31,17 +31,9 @@ module ApplicationHelper
 
   def author_username(question)
     if question.author.present?
-      question.author.username
+      link_to question.author.username, user_path(question.author)
     else
-      'Гость'
-    end
-  end
-
-  def author_path(question)
-    if question.author.present?
-      question.author_id
-    else
-      @user.id
+      I18n.t (:guest)
     end
   end
 end
